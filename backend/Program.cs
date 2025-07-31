@@ -3,6 +3,7 @@ using Microsoft.EntityFrameworkCore;
 using ATM.Infrastructure.Data;
 using ATM.Core.Application;
 using ATM.API.DTOs;
+using ATM.Core.Domain;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -15,10 +16,7 @@ builder.Configuration
 var connectionString = Environment.GetEnvironmentVariable("DATABASE_URL") ?? 
                       builder.Configuration.GetConnectionString("DefaultConnection");
 
-// Debug logging for both CORS and Database
-Console.WriteLine($"DATABASE_URL environment variable: {Environment.GetEnvironmentVariable("DATABASE_URL")}");
-Console.WriteLine($"DefaultConnection from config: {builder.Configuration.GetConnectionString("DefaultConnection")}");
-Console.WriteLine($"Final connection string being used: {connectionString}");
+
 
 builder.Services.AddCors()
     .AddDbContext<AtmDbContext>(options => 
@@ -27,12 +25,32 @@ builder.Services.AddCors()
 
 var app = builder.Build();
 
+using (var scope = app.Services.CreateScope())
+{
+    try 
+    {
+        var context = scope.ServiceProvider.GetService<AtmDbContext>();
+        
+        Console.WriteLine("Running database migrations...");
+        await context.Database.MigrateAsync();
+        Console.WriteLine("Database migrations completed successfully");
+        
+        if (!await context.Users.AnyAsync())
+        {
+            var adminUser = new User { Username = "admin", Pin = "123", Balance = 1000.00m };
+            context.Users.Add(adminUser);
+            await context.SaveChangesAsync();
+        }
+    }
+    catch (Exception ex)
+    {
+        Console.WriteLine($"Database setup error: {ex.Message}");
+        Console.WriteLine($"Stack trace: {ex.StackTrace}");
+    }
+}
+
 var allowedOrigins = Environment.GetEnvironmentVariable("ALLOWED_ORIGINS")?.Split(',') 
                     ?? new[] { "http://localhost:5173" };
-
-// Debug logging
-Console.WriteLine($"ALLOWED_ORIGINS environment variable: {Environment.GetEnvironmentVariable("ALLOWED_ORIGINS")}");
-Console.WriteLine($"Configured allowed origins: {string.Join(", ", allowedOrigins)}");
 
 app.UseCors(options => options
     .WithOrigins(allowedOrigins)
