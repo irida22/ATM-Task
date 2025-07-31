@@ -13,7 +13,6 @@ builder.Configuration
     .AddJsonFile($"appsettings.{builder.Environment.EnvironmentName}.json", optional: true)
     .AddEnvironmentVariables();
 
-// Convert URI format to Npgsql format
 var connectionString = "Host=dpg-d25ubpggjchc73dorij0-a.oregon-postgres.render.com;Database=atm_db;Username=atm_db_user;Password=jDbpHvc4tWY3GgbJKPojksvAhz4I9ZhK;Port=5432;SSL Mode=Require;Trust Server Certificate=true";
 
 Console.WriteLine($"Using connection string: {connectionString}");
