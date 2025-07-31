@@ -25,6 +25,10 @@ var app = builder.Build();
 var allowedOrigins = Environment.GetEnvironmentVariable("ALLOWED_ORIGINS")?.Split(',') 
                     ?? new[] { "http://localhost:5173" };
 
+// Debug logging
+Console.WriteLine($"ALLOWED_ORIGINS environment variable: {Environment.GetEnvironmentVariable("ALLOWED_ORIGINS")}");
+Console.WriteLine($"Configured allowed origins: {string.Join(", ", allowedOrigins)}");
+
 app.UseCors(options => options
     .WithOrigins(allowedOrigins)
     .AllowAnyMethod()
