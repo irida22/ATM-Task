@@ -13,8 +13,8 @@ builder.Configuration
     .AddJsonFile($"appsettings.{builder.Environment.EnvironmentName}.json", optional: true)
     .AddEnvironmentVariables();
 
-// Using the correct external database URL with port
-var connectionString = "postgresql://atm_db_user:jDbpHvc4tWY3GgbJKPojksvAhz4I9ZhK@dpg-d25ubpggjchc73dorij0-a.oregon-postgres.render.com:5432/atm_db";
+// Convert URI format to Npgsql format
+var connectionString = "Host=dpg-d25ubpggjchc73dorij0-a.oregon-postgres.render.com;Database=atm_db;Username=atm_db_user;Password=jDbpHvc4tWY3GgbJKPojksvAhz4I9ZhK;Port=5432;SSL Mode=Require;Trust Server Certificate=true";
 
 Console.WriteLine($"Using connection string: {connectionString}");
 
