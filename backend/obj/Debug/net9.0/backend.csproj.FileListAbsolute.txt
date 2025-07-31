@@ -127,3 +127,4 @@ C:\Users\User\atm-project\backend\obj\Debug\net9.0\rjimswa.dswa.cache.json
 C:\Users\User\atm-project\backend\obj\Debug\net9.0\rjsmrazor.dswa.cache.json
 C:\Users\User\atm-project\backend\obj\Debug\net9.0\rjsmcshtml.dswa.cache.json
 C:\Users\User\atm-project\backend\obj\Debug\net9.0\staticwebassets.build.json.cache
+C:\Users\User\atm-project\backend\bin\Debug\net9.0\Config\appsettings.Production.json
