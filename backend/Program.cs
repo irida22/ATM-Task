@@ -31,9 +31,9 @@ using (var scope = app.Services.CreateScope())
     {
         var context = scope.ServiceProvider.GetService<AtmDbContext>();
         
-        Console.WriteLine("Running database migrations...");
-        await context.Database.MigrateAsync();
-        Console.WriteLine("Database migrations completed successfully");
+        Console.WriteLine("Creating database and tables...");
+        await context.Database.EnsureCreatedAsync();
+        Console.WriteLine("Database and tables created successfully");
         
         if (!await context.Users.AnyAsync())
         {
