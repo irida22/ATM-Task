@@ -15,6 +15,11 @@ builder.Configuration
 var connectionString = Environment.GetEnvironmentVariable("DATABASE_URL") ?? 
                       builder.Configuration.GetConnectionString("DefaultConnection");
 
+// Debug logging for both CORS and Database
+Console.WriteLine($"DATABASE_URL environment variable: {Environment.GetEnvironmentVariable("DATABASE_URL")}");
+Console.WriteLine($"DefaultConnection from config: {builder.Configuration.GetConnectionString("DefaultConnection")}");
+Console.WriteLine($"Final connection string being used: {connectionString}");
+
 builder.Services.AddCors()
     .AddDbContext<AtmDbContext>(options => 
         options.UseNpgsql(connectionString))
