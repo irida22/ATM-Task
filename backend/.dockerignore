@@ -1,0 +1,15 @@
+bin/
+obj/
+.vs/
+.vscode/
+*.user
+*.suo
+*.userprefs
+.DS_Store
+Thumbs.db
+*.log
+.git/
+.gitignore
+README.md
+Dockerfile
+.dockerignore 

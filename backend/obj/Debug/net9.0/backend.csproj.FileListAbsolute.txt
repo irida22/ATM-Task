@@ -14,12 +14,6 @@ C:\Users\User\atm-project\backend\obj\Debug\net9.0\scopedcss\bundle\backend.styl
 C:\Users\User\atm-project\backend\obj\Debug\net9.0\staticwebassets.build.json
 C:\Users\User\atm-project\backend\obj\Debug\net9.0\staticwebassets.development.json
 C:\Users\User\atm-project\backend\obj\Debug\net9.0\staticwebassets.build.endpoints.json
-C:\Users\User\atm-project\backend\obj\Debug\net9.0\staticwebassets\msbuild.backend.Microsoft.AspNetCore.StaticWebAssets.props
-C:\Users\User\atm-project\backend\obj\Debug\net9.0\staticwebassets\msbuild.backend.Microsoft.AspNetCore.StaticWebAssetEndpoints.props
-C:\Users\User\atm-project\backend\obj\Debug\net9.0\staticwebassets\msbuild.build.backend.props
-C:\Users\User\atm-project\backend\obj\Debug\net9.0\staticwebassets\msbuild.buildMultiTargeting.backend.props
-C:\Users\User\atm-project\backend\obj\Debug\net9.0\staticwebassets\msbuild.buildTransitive.backend.props
-C:\Users\User\atm-project\backend\obj\Debug\net9.0\staticwebassets.pack.json
 C:\Users\User\atm-project\backend\obj\Debug\net9.0\backend.csproj.Up2Date
 C:\Users\User\atm-project\backend\obj\Debug\net9.0\backend.dll
 C:\Users\User\atm-project\backend\obj\Debug\net9.0\refint\backend.dll
@@ -59,7 +53,6 @@ C:\Users\User\atm-project\backend\bin\Debug\net9.0\System.Composition.Convention
 C:\Users\User\atm-project\backend\bin\Debug\net9.0\System.Composition.Hosting.dll
 C:\Users\User\atm-project\backend\bin\Debug\net9.0\System.Composition.Runtime.dll
 C:\Users\User\atm-project\backend\bin\Debug\net9.0\System.Composition.TypedParts.dll
-C:\Users\User\atm-project\backend\bin\Debug\net9.0\System.Text.Json.dll
 C:\Users\User\atm-project\backend\bin\Debug\net9.0\cs\Microsoft.CodeAnalysis.resources.dll
 C:\Users\User\atm-project\backend\bin\Debug\net9.0\de\Microsoft.CodeAnalysis.resources.dll
 C:\Users\User\atm-project\backend\bin\Debug\net9.0\es\Microsoft.CodeAnalysis.resources.dll
@@ -129,3 +122,8 @@ C:\Users\User\atm-project\backend\bin\Debug\net9.0\backend.staticwebassets.runti
 C:\Users\User\atm-project\backend\bin\Debug\net9.0\Config\appsettings.Development.json
 C:\Users\User\atm-project\backend\bin\Debug\net9.0\Config\appsettings.json
 C:\Users\User\atm-project\backend\obj\Debug\net9.0\compressed\0yulyb0yu6-urh6lo1n7u.gz
+C:\Users\User\atm-project\backend\obj\Debug\net9.0\rpswa.dswa.cache.json
+C:\Users\User\atm-project\backend\obj\Debug\net9.0\rjimswa.dswa.cache.json
+C:\Users\User\atm-project\backend\obj\Debug\net9.0\rjsmrazor.dswa.cache.json
+C:\Users\User\atm-project\backend\obj\Debug\net9.0\rjsmcshtml.dswa.cache.json
+C:\Users\User\atm-project\backend\obj\Debug\net9.0\staticwebassets.build.json.cache

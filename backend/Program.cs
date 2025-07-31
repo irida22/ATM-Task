@@ -8,17 +8,25 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.Configuration
     .SetBasePath(Path.Combine(builder.Environment.ContentRootPath, "Config"))
-    .AddJsonFile("appsettings.json");
+    .AddJsonFile("appsettings.json")
+    .AddJsonFile($"appsettings.{builder.Environment.EnvironmentName}.json", optional: true)
+    .AddEnvironmentVariables();
+
+var connectionString = Environment.GetEnvironmentVariable("DATABASE_URL") ?? 
+                      builder.Configuration.GetConnectionString("DefaultConnection");
 
 builder.Services.AddCors()
     .AddDbContext<AtmDbContext>(options => 
-        options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection")))
+        options.UseNpgsql(connectionString))
     .AddScoped<UserService>();
 
 var app = builder.Build();
 
+var allowedOrigins = Environment.GetEnvironmentVariable("ALLOWED_ORIGINS")?.Split(',') 
+                    ?? new[] { "http://localhost:5173" };
+
 app.UseCors(options => options
-    .WithOrigins("http://localhost:5173")
+    .WithOrigins(allowedOrigins)
     .AllowAnyMethod()
     .AllowAnyHeader());
 
