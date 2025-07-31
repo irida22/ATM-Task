@@ -13,10 +13,10 @@ builder.Configuration
     .AddJsonFile($"appsettings.{builder.Environment.EnvironmentName}.json", optional: true)
     .AddEnvironmentVariables();
 
-var connectionString = Environment.GetEnvironmentVariable("DATABASE_URL") ?? 
-                      builder.Configuration.GetConnectionString("DefaultConnection");
+// Using the correct external database URL with port
+var connectionString = "postgresql://atm_db_user:jDbpHvc4tWY3GgbJKPojksvAhz4I9ZhK@dpg-d25ubpggjchc73dorij0-a.oregon-postgres.render.com:5432/atm_db";
 
-
+Console.WriteLine($"Using connection string: {connectionString}");
 
 builder.Services.AddCors()
     .AddDbContext<AtmDbContext>(options => 
@@ -40,6 +40,11 @@ using (var scope = app.Services.CreateScope())
             var adminUser = new User { Username = "admin", Pin = "123", Balance = 1000.00m };
             context.Users.Add(adminUser);
             await context.SaveChangesAsync();
+            Console.WriteLine("Created admin user successfully");
+        }
+        else 
+        {
+            Console.WriteLine("Admin user already exists");
         }
     }
     catch (Exception ex)
